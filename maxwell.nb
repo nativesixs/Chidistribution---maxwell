@@ -1,0 +1,588 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24760,        580]
+NotebookOptionsPosition[     23959,        559]
+NotebookOutlinePosition[     24334,        575]
+CellTagsIndexPosition[     24291,        572]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     StyleBox["_",
+      FontSize->14], 
+     StyleBox["Chidistribution",
+      FontSize->36]}]], 
+   StyleBox["_metoda",
+    FontSize->36]}], 
+  StyleBox["\[IndentingNewLine]",
+   FontSize->36], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "ChiDistribution", " ", "neboli", " ", "ch\[IAcute]", " ", "distribuce", 
+    " ", "je", " ", "zalo\[ZHacek]en\[AAcute]", " ", "na", " ", "jednom", " ",
+     "vstupn\[IAcute]m", " ", "parametru", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", "c", ")"}], " ", "!!"}], "!!"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", "maxi", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    StyleBox["mMax",
+     FontColor->GrayLevel[0]], "[", "fce__", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", "=", "fce"}], "}"}], ",", " ", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"s", "=", "2"}], ";", 
+         RowBox[{"y", "=", 
+          RowBox[{"a", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+        RowBox[{"s", "\[LessEqual]", 
+         RowBox[{"Length", "[", "a", "]"}]}], ",", 
+        RowBox[{"s", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"y", "<", 
+           RowBox[{"a", "[", 
+            RowBox[{"[", "s", "]"}], "]"}]}], ",", 
+          RowBox[{"y", "=", 
+           RowBox[{"a", "[", 
+            RowBox[{"[", "s", "]"}], "]"}]}]}], "]"}]}], "]"}], ";", "y"}]}], 
+    "]"}]}], "\[IndentingNewLine]", 
+  RowBox[{"(*", "mini", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mMin", "[", "fce__", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", "=", "fce"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"s", "=", "2"}], ";", 
+         RowBox[{"y", "=", 
+          RowBox[{"a", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+        RowBox[{"s", "\[LessEqual]", 
+         RowBox[{"Length", "[", "a", "]"}]}], ",", 
+        RowBox[{"s", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"y", ">", 
+           RowBox[{"a", "[", 
+            RowBox[{"[", "s", "]"}], "]"}]}], ",", 
+          RowBox[{"y", "=", 
+           RowBox[{"a", "[", 
+            RowBox[{"[", "s", "]"}], "]"}]}]}], "]"}]}], "]"}], ";", "y"}]}], 
+    "]"}]}], "\[IndentingNewLine]", 
+  RowBox[{"(*", "prumer", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     StyleBox["mMean",
+      FontColor->GrayLevel[0]], "[", "fce__", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Total", "[", "fce", "]"}], "/", 
+     RowBox[{"Length", "[", "fce", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"medi\[AAcute]n", " ", "-", " ", 
+     RowBox[{
+     "set\[RHacek]\[IAcute]d\[IAcute]m", " ", "\[CHacek]\[IAcute]sla", " ", 
+      "od", " ", "nejmen\[SHacek]\[IAcute]", " ", "po", " ", 
+      RowBox[{"nejv\[EHacek]t\[SHacek]\[IAcute]", " ", ".", " ", "Mohou"}], 
+      " ", "nastat", " ", "2", " ", 
+      RowBox[{"stavy", ".", " ", "1"}]}], " ", "-", " ", 
+     RowBox[{
+     "lich\[YAcute]", " ", "po\[CHacek]et", " ", "\[CHacek]\[IAcute]sel", " ", 
+      RowBox[{"(", " ", 
+       RowBox[{
+        RowBox[{
+        "v\[YAcute]sledkem", " ", "je", " ", "\[CHacek]\[IAcute]slo", " ", 
+         "s", " ", "po\[RHacek]ad\[IAcute]m", " ", "N"}], " ", "=", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{
+            "celkov\[YAcute]", " ", "po\[CHacek]et", " ", 
+             "\[CHacek]\[IAcute]sel"}], " ", "+", "1"}], "]"}], "/", "2"}], 
+         ")"}]}], ")"}]}]}], " ", ",", " ", 
+    RowBox[{"2", " ", "-", " ", 
+     RowBox[{"sud\[YAcute]", " ", "po\[CHacek]et", " ", 
+      RowBox[{"(", 
+       RowBox[{
+       "vyberu", " ", "2", " ", "\[CHacek]\[IAcute]sla", " ", "a", " ", 
+        "spo\[CHacek]\[IAcute]t\[AAcute]m", " ", "z", " ", "nich", " ", 
+        "pr\[URing]m\[EHacek]r"}], ")"}]}]}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     StyleBox["mMedi",
+      FontColor->GrayLevel[0]], "[", "fce__", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"a", "=", "fce"}], ",", " ", "y", ",", " ", "hodnoty"}], 
+       "}"}], ",", " ", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"y", "=", 
+        RowBox[{"Sort", "[", "a", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"OddQ", "[", 
+          RowBox[{"Length", "[", "a", "]"}], "]"}], ",", " ", 
+         RowBox[{"hodnoty", "=", 
+          RowBox[{"y", "[", 
+           RowBox[{"[", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"Length", "[", "a", "]"}], "+", "1"}], ")"}], "/", 
+             "2"}], "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"hodnoty", "=", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"y", "[", 
+              RowBox[{"[", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"Length", "[", "a", "]"}], "/", "2"}], ")"}], "+", 
+                "1"}], "]"}], "]"}], "+", 
+             RowBox[{"y", "[", 
+              RowBox[{"[", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Length", "[", "a", "]"}], "/", "2"}], ")"}], "]"}], 
+              "]"}]}], ")"}], "/", "2"}]}]}], "]"}]}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "rozptyl", " ", "ukazuje", " ", "kter\[EAcute]", " ", "hodnoty", " ", 
+     "se", " ", "vzdaluj\[IAcute]", " ", "od", " ", "aritmetick\[EAcute]ho", 
+     " ", "pr\[URing]m\[EHacek]ru"}], ",", " ", 
+    RowBox[{"vypo\[CHacek]et", " ", "-", " ", 
+     RowBox[{
+     "sou\[CHacek]et", " ", "obsahu", " ", "\[CHacek]tverc\[URing]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+       "rozm\[EHacek]r", " ", "ka\[ZHacek]d\[EAcute]ho", " ", 
+        "\[CHacek]verce", " ", "je", " ", "dan\[YAcute]", " ", 
+        "vdz\[AAcute]lenost\[IAcute]", " ", "vzd\[AAcute]len\[EAcute]ho", " ",
+         "prvku", " ", "od", " ", "aritemetick\[EAcute]ho", " ", 
+        "pr\[URing]m\[EHacek]ru"}], ")"}]}]}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     StyleBox["mDispersion",
+      FontColor->GrayLevel[0]], "[", "fce__", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"a", "=", "fce"}], ",", " ", "y", ",", "suma"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"s", "=", "1"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"suma", "=", "0"}]}], ",", " ", 
+         RowBox[{"s", "\[LessEqual]", " ", 
+          RowBox[{"Length", "[", "a", "]"}]}], ",", " ", 
+         RowBox[{"s", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"suma", "=", 
+          RowBox[{"suma", "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Total", "[", 
+               RowBox[{"-", "a"}], "]"}], "+", 
+              RowBox[{
+               RowBox[{"a", "[", 
+                RowBox[{"[", "s", "]"}], "]"}], "*", 
+               RowBox[{"Length", "[", "a", "]"}]}]}], ")"}], "*", 
+            RowBox[{"Conjugate", "[", 
+             RowBox[{"a", "[", 
+              RowBox[{"[", "s", "]"}], "]"}], "]"}]}]}]}]}], " ", "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"y", "=", 
+        RowBox[{
+         RowBox[{"1", "/", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Length", "[", "a", "]"}], "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Length", "[", "a", "]"}], "-", "1"}], ")"}]}], ")"}]}],
+          "*", "suma"}]}], ";", "y"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"smerodatna", " ", "odchylka"}], " ", "=", " ", 
+    RowBox[{"\[Sqrt]", 
+     RowBox[{"(", "rozptyl", ")"}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    StyleBox["mDeviation",
+     FontColor->GrayLevel[0]], "[", "fce__", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", "=", "fce"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"s", "=", "1"}], ";", 
+         RowBox[{"suma", "=", "0"}], ";", 
+         RowBox[{"y", "=", 
+          RowBox[{"a", "[", 
+           RowBox[{"[", "s", "]"}], "]"}]}]}], ",", " ", 
+        RowBox[{"s", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "a", "]"}]}], ",", 
+        RowBox[{"s", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         StyleBox["suma",
+          FontColor->GrayLevel[0]], "+=", " ", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Total", "[", 
+             RowBox[{"-", "a"}], "]"}], "+", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Length", "[", "a", "]"}], "*", 
+              RowBox[{"a", "[", 
+               RowBox[{"[", "s", "]"}], "]"}]}], ")"}]}], " ", ")"}], "*", 
+          RowBox[{"Conjugate", "[", 
+           RowBox[{"a", "[", 
+            RowBox[{"[", "s", "]"}], "]"}], "]"}]}]}]}], "]"}], ";", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "/", 
+         RowBox[{"(", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"Length", "[", "a", "]"}], "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Length", "[", "a", "]"}], "-", "1"}], ")"}]}], "]"}], 
+          ")"}]}], ")"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"Sqrt", "[", "suma", "]"}], ")"}]}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6651129835920825`*^9, 3.6651130460360317`*^9}, 
+   3.6651131616837234`*^9, {3.6651153660095787`*^9, 3.665115375741115*^9}, {
+   3.665716792669713*^9, 3.6657168143953085`*^9}, {3.665716879612108*^9, 
+   3.6657168846504927`*^9}, {3.6657181569282017`*^9, 
+   3.6657181756577845`*^9}, {3.6657187348444567`*^9, 
+   3.6657187364825554`*^9}, {3.6657187917856956`*^9, 
+   3.6657188325710974`*^9}, {3.665719076288825*^9, 3.6657193908651543`*^9}, {
+   3.6657194908543262`*^9, 3.665719640596925*^9}, 3.6657200183787155`*^9, {
+   3.665720231937183*^9, 3.665720234030602*^9}, {3.6661072412249775`*^9, 
+   3.6661072456619473`*^9}, {3.6661073068360453`*^9, 3.666107598134736*^9}, {
+   3.6661076290394993`*^9, 3.666107681917019*^9}, {3.6661077302044587`*^9, 
+   3.6661079581706066`*^9}, {3.6661084096919355`*^9, 
+   3.6661086476287794`*^9}, {3.6661086991924205`*^9, 3.666108837692464*^9}, {
+   3.6661091720020533`*^9, 3.666109308746915*^9}, {3.666111171606375*^9, 
+   3.666111173601717*^9}, {3.6661113541900344`*^9, 3.666111378451332*^9}, {
+   3.666111421371187*^9, 3.6661116033824406`*^9}, {3.66611166136139*^9, 
+   3.666111743343466*^9}, {3.666111812063631*^9, 3.6661120542513323`*^9}, {
+   3.666112204592331*^9, 3.666112207906557*^9}, 3.666112298552451*^9, {
+   3.666114747182429*^9, 3.666114773824327*^9}, {3.6661869187859063`*^9, 
+   3.666186949412468*^9}, {3.6661869861151247`*^9, 3.666186996780289*^9}, {
+   3.6661886130921197`*^9, 3.6661886375465517`*^9}, {3.6661891447763143`*^9, 
+   3.6661892694670687`*^9}, {3.6661916753062997`*^9, 3.666191681626546*^9}, {
+   3.6661917830196724`*^9, 3.6661918461410656`*^9}, {3.6661919290017304`*^9, 
+   3.666191979339552*^9}, {3.6663242647836933`*^9, 3.6663242667570057`*^9}, {
+   3.6663244356764994`*^9, 3.666324437900993*^9}, {3.6663247485806932`*^9, 
+   3.6663247538202133`*^9}, {3.6663248973536386`*^9, 3.666324940403571*^9}, 
+   3.760618142613326*^9, {3.7606182519815683`*^9, 3.760618253442955*^9}, {
+   3.760618299702346*^9, 3.7606183002103877`*^9}, {3.760618838941388*^9, 
+   3.7606188528879366`*^9}, {3.760646026818603*^9, 3.760646026981251*^9}, {
+   3.760646068332576*^9, 3.7606462954009295`*^9}, {3.760646350921134*^9, 
+   3.760646351138403*^9}, {3.760646390036792*^9, 3.7606463904608717`*^9}, 
+   3.7606465212795544`*^9, 3.7606465515352993`*^9, {3.7606465829247365`*^9, 
+   3.760646606513932*^9}, {3.7606466555897055`*^9, 3.7606466556209536`*^9}, {
+   3.760646714681101*^9, 3.760646789950819*^9}, {3.7606468347257013`*^9, 
+   3.7606468868283634`*^9}, {3.7606471525627356`*^9, 3.760647200235783*^9}, {
+   3.7606472585754232`*^9, 3.760647258847741*^9}, {3.7606472955926104`*^9, 
+   3.7606473427609844`*^9}, {3.760647394208854*^9, 3.7606474863878126`*^9}, {
+   3.7606475242911367`*^9, 3.7606475391289206`*^9}, {3.7606482493707743`*^9, 
+   3.760648354556079*^9}, {3.7608118482379065`*^9, 3.760811865063204*^9}, {
+   3.760812406837245*^9, 3.760812631136835*^9}, {3.7923061315456305`*^9, 
+   3.7923061466045914`*^9}, {3.7923062184892797`*^9, 3.7923062191766157`*^9}},
+ Background->RGBColor[1, 0.9, 0.8],
+ CellLabel->"In[28]:=",ExpressionUUID->"a1767292-ba07-44f5-b078-9fd57ee2b18a"],
+
+Cell[BoxData[
+ RowBox[{"_Chidistribution", " ", "_metoda"}]], "Output",
+ CellChangeTimes->{3.792306241671706*^9},
+ CellLabel->"Out[28]=",ExpressionUUID->"c823c8ee-5f04-4c2f-80f7-95a3729d992c"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.7606175814187975`*^9},
+ CellLabel->"In[35]:=",ExpressionUUID->"54129c91-a6e3-4c51-8537-8883bc582fd6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Column", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Histogram", "[", 
+          RowBox[{
+           RowBox[{"cisla", "=", 
+            RowBox[{"RandomVariate", "[", 
+             RowBox[{
+              RowBox[{"MaxwellDistribution", "[", "sigma", "]"}], ",", 
+              "cetnost"}], "]"}]}], ",", 
+           RowBox[{"AxesLabel", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"\"\<Hodnoty\>\"", ",", "\"\<Cetnost\>\""}], "}"}]}], 
+           ",", 
+           RowBox[{"PlotLabel", "\[Rule]", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<Histogram-maxwellovo rozdeleni\>\"", ",", "18"}], 
+             "]"}]}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Automatic", ",", "300"}], "}"}]}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Grid", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+              "\"\<\>\"", ",", "\"\<Naprogramovan\[EAcute]\>\"", ",", 
+               "\"\<Mathematica\>\""}], "}"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<Minimum: \>\"", ",", 
+               RowBox[{
+                StyleBox["mMin",
+                 FontColor->GrayLevel[0]], "[", "cisla", "]"}], ",", 
+               RowBox[{"Min", "[", "cisla", "]"}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<Maximum: \>\"", ",", 
+               RowBox[{
+                StyleBox["mMax",
+                 FontColor->GrayLevel[0]], "[", "cisla", "]"}], ",", 
+               RowBox[{"Max", "[", "cisla", "]"}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<Pr\[URing]m\[EHacek]r: \>\"", ",", 
+               RowBox[{
+                StyleBox["mMean",
+                 FontColor->GrayLevel[0]], "[", "cisla", "]"}], ",", 
+               RowBox[{"Mean", "[", "cisla", "]"}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<Medi\[AAcute]n: \>\"", ",", 
+               RowBox[{
+                StyleBox["mMedi",
+                 FontColor->GrayLevel[0]], "[", "cisla", "]"}], ",", 
+               RowBox[{"Median", "[", "cisla", "]"}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<Rozptyl: \>\"", ",", 
+               RowBox[{
+                StyleBox["mDispersion",
+                 FontColor->GrayLevel[0]], "[", "cisla", "]"}], ",", 
+               RowBox[{"Variance", "[", "cisla", "]"}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<Sm\[EHacek]rodatn\[AAcute] odchylka: \>\"", ",", 
+               RowBox[{
+                StyleBox["mDeviation",
+                 FontColor->GrayLevel[0]], "[", "cisla", "]"}], ",", 
+               RowBox[{"StandardDeviation", "[", "cisla", "]"}]}], "}"}]}], 
+            "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+           RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}]}], "}"}], ",", 
+       "Right", ",", " ", "Left"}], "]"}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"cetnost", ",", "10", ",", "\"\<Po\[CHacek]et hodnot:\>\""}], 
+        "}"}], ",", "10", ",", "10000", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"sigma", ",", "1", ",", "\"\<sigma:\>\""}], "}"}], ",", "0.1",
+        ",", "10"}], "}"}], ",", 
+     RowBox[{"Dynamic", "[", "cetnost", "]"}], ",", 
+     RowBox[{"Dynamic", "[", "sigma", "]"}]}], "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.760617599672073*^9, 3.7606176011704392`*^9}, 
+   3.7606176319542136`*^9, {3.7606177147940817`*^9, 3.7606177593544207`*^9}, {
+   3.760617886342255*^9, 3.760617909387187*^9}, {3.7606179847879133`*^9, 
+   3.760618053602768*^9}, 3.7606181426272144`*^9, {3.7606184741863203`*^9, 
+   3.760618507997241*^9}, 3.7606185442298155`*^9, {3.760618583095524*^9, 
+   3.760618607062866*^9}, 3.7606187790007305`*^9, {3.760646464095461*^9, 
+   3.7606464648249607`*^9}, 3.7606465212993574`*^9, 3.760646551550179*^9, {
+   3.760646582934127*^9, 3.7606466065273705`*^9}, {3.7606467146909914`*^9, 
+   3.760646789969666*^9}, 3.760646834747572*^9, 3.760646886848199*^9, {
+   3.7606477435959578`*^9, 3.7606477447358413`*^9}, {3.760647778414302*^9, 
+   3.76064780707996*^9}, {3.760647864355892*^9, 3.7606479212200036`*^9}, {
+   3.7606479994189634`*^9, 3.7606480049992776`*^9}, {3.760648116492235*^9, 
+   3.760648119558441*^9}, 3.760648159197939*^9, {3.7606484225780067`*^9, 
+   3.7606484244561033`*^9}, {3.7923041748051662`*^9, 3.792304189492898*^9}, {
+   3.792304624703119*^9, 3.7923046670465984`*^9}, {3.7923046972267284`*^9, 
+   3.792304699640958*^9}, 3.7923047318102303`*^9, {3.792305029155322*^9, 
+   3.7923050557428403`*^9}, {3.792305315911256*^9, 3.7923053346724825`*^9}, {
+   3.79230546098735*^9, 3.7923054812644644`*^9}, {3.792305684808277*^9, 
+   3.792305688432537*^9}, {3.7923058034369073`*^9, 3.7923058080824404`*^9}, 
+   3.7923059010078173`*^9, {3.792306372707348*^9, 3.792306427522323*^9}, 
+   3.7923070266429243`*^9, 3.7923070693823104`*^9, {3.7923071234828525`*^9, 
+   3.792307144524686*^9}, {3.792307187025344*^9, 3.792307200334594*^9}},
+ Background->RGBColor[1, 0.9, 0.8],
+ CellLabel->"In[48]:=",ExpressionUUID->"09edb165-a09e-4494-9953-c365a0eec259"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`cetnost$$ = 10, $CellContext`sigma$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`cetnost$$], 10, "Po\[CHacek]et hodnot:"}, 10, 10000, 
+      1}, {{
+       Hold[$CellContext`sigma$$], 1, "sigma:"}, 0.1, 10}, {
+      Hold[
+       Dynamic[$CellContext`cetnost$$]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[$CellContext`sigma$$]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {511., {236., 243.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`cetnost$194318$$ = 0, $CellContext`sigma$194319$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`cetnost$$ = 10, $CellContext`sigma$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`cetnost$$, $CellContext`cetnost$194318$$, 0], 
+        Hold[$CellContext`sigma$$, $CellContext`sigma$194319$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         Histogram[$CellContext`cisla = RandomVariate[
+            
+            MaxwellDistribution[$CellContext`sigma$$], \
+$CellContext`cetnost$$], AxesLabel -> {"Hodnoty", "Cetnost"}, PlotLabel -> 
+          Style["Histogram-maxwellovo rozdeleni", 18], 
+          ImageSize -> {Automatic, 300}], 
+         Grid[{{"", "Naprogramovan\[EAcute]", "Mathematica"}, {"Minimum: ", 
+            $CellContext`mMin[$CellContext`cisla], 
+            Min[$CellContext`cisla]}, {"Maximum: ", 
+            $CellContext`mMax[$CellContext`cisla], 
+            Max[$CellContext`cisla]}, {"Pr\[URing]m\[EHacek]r: ", 
+            $CellContext`mMean[$CellContext`cisla], 
+            Mean[$CellContext`cisla]}, {"Medi\[AAcute]n: ", 
+            $CellContext`mMedi[$CellContext`cisla], 
+            Median[$CellContext`cisla]}, {"Rozptyl: ", 
+            $CellContext`mDispersion[$CellContext`cisla], 
+            Variance[$CellContext`cisla]}, {
+           "Sm\[EHacek]rodatn\[AAcute] odchylka: ", 
+            $CellContext`mDeviation[$CellContext`cisla], 
+            StandardDeviation[$CellContext`cisla]}}, Frame -> All, Alignment -> 
+          Center]}, Right, Left], 
+      "Specifications" :> {{{$CellContext`cetnost$$, 10, 
+          "Po\[CHacek]et hodnot:"}, 10, 10000, 
+         1}, {{$CellContext`sigma$$, 1, "sigma:"}, 0.1, 10}, 
+        Dynamic[$CellContext`cetnost$$], 
+        Dynamic[$CellContext`sigma$$]}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{566., {319., 326.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.7923047346999283`*^9, 3.792305036262783*^9, 3.7923050732072463`*^9, 
+   3.792305318738495*^9, 3.7923053645688453`*^9, 3.7923054829982376`*^9, {
+   3.792305804420842*^9, 3.7923058105816073`*^9}, 3.792305904522368*^9, 
+   3.7923062417966747`*^9, {3.79230637389432*^9, 3.7923064283031597`*^9}, 
+   3.792307027845521*^9, {3.7923071251384697`*^9, 3.7923071470552754`*^9}, 
+   3.792307202943364*^9},
+ CellLabel->"Out[48]=",ExpressionUUID->"d86b0660-516c-4fc0-bcb9-99b64a49590e"]
+}, Open  ]]
+},
+WindowSize->{1273, 635},
+WindowMargins->{{310, Automatic}, {-21, Automatic}},
+Magnification:>1.1 Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 13400, 330, 823, "Input",ExpressionUUID->"a1767292-ba07-44f5-b078-9fd57ee2b18a",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[13961, 352, 192, 3, 36, "Output",ExpressionUUID->"c823c8ee-5f04-4c2f-80f7-95a3729d992c"],
+Cell[14156, 357, 168, 2, 55, "Input",ExpressionUUID->"54129c91-a6e3-4c51-8537-8883bc582fd6"],
+Cell[CellGroupData[{
+Cell[14349, 363, 5757, 118, 403, "Input",ExpressionUUID->"09edb165-a09e-4494-9953-c365a0eec259"],
+Cell[20109, 483, 3834, 73, 666, "Output",ExpressionUUID->"d86b0660-516c-4fc0-bcb9-99b64a49590e"]
+}, Open  ]]
+}
+]
+*)
+
